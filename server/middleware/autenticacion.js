@@ -28,16 +28,26 @@ let verificaToken = (req, res, next) => {
 let verifcaAdmin_Role = (req, res, next) => {
     let usuario = req.usuario;
 
-    if (!usuario.role === 'ADMIN_ROLE') {
-        console.log('Entra al IF');
-        return res.status(401).json({
+    if (usuario.role === 'ADMIN_ROLE') {
+        next();
+    } else {
+        res.json({
             ok: false,
             err: {
                 message: 'El usuario no es ADMINISTRADOR'
             }
         });
     }
-    next();
+    // if (!usuario.role === 'ADMIN_ROLE') {
+    //     console.log('Entra al IF');
+    //     return res.status(401).json({
+    //         ok: false,
+    //         err: {
+    //             message: 'El usuario no es ADMINISTRADOR'
+    //         }
+    //     });
+    // }
+    // next();
 };
 
 
