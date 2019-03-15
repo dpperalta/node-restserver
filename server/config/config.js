@@ -18,10 +18,11 @@ process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30
 //          SEED DE AUTENTICACIÓN
 // =========================================
 process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo'
-    // =========================================
-    //          AMBIENTE DE BASE DE DATOS
-    // =========================================
 let urlDB;
+
+// =========================================
+//          AMBIENTE DE BASE DE DATOS
+// =========================================
 
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/cafe';
@@ -29,3 +30,8 @@ if (process.env.NODE_ENV === 'dev') {
     urlDB = process.env.MONGO_URI;
 }
 process.env.URLDB = urlDB;
+
+// =========================================
+//          GOOGLE CLIENT ID
+// =========================================
+process.env.CLIENT_ID = process.env.CLIENT_ID || '663358526182-9ec3c9bq2fjsnu7jcsr9hcj9qe1uefo9.apps.googleusercontent.com';
